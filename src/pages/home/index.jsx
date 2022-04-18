@@ -10,7 +10,6 @@ export default function Home() {
             <Sidebar />
             <article className='home__container'>
                 {/* <Navbar/> */}
-                <Table />
             </article>
         </section>
 

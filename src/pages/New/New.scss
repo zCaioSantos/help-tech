@@ -1,0 +1,11 @@
+.new {
+    display: flex;
+    
+    .new__container {
+        flex: 6;
+        padding: 1.5rem;
+
+        height: 100vh;
+        overflow-y: scroll;
+    }
+}

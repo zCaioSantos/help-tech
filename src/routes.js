@@ -17,12 +17,14 @@ function RoutesApp() {
 
                     <Route path='/users'>
                         <Route index element={<Single table={(<Table title="List Users" list={[{Id: 1, name: "Caio"}]}/>)}/>} /> 
+                        
                     </Route>
 
                     <Route path='/products'>
                         <Route index element={<Single table={(<Table title="List Products" list={[{Id: 1, name: "Notebook Lenovo"}]}/>)}/>} /> 
+                        
                     </Route>
-                    
+
                 </Route>
             </Routes>
         </BrowserRouter>

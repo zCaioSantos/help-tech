@@ -1,6 +1,6 @@
 // import Navbar from '../../components/Navbar/Navbar'
+import Loading from '../../components/Loading/Loading'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import Table from '../../components/Table/Table'
 import './home.scss'
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
         <section className="home">
             <Sidebar />
             <article className='home__container'>
-                {/* <Navbar/> */}
+                <Loading />
             </article>
         </section>
 

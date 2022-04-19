@@ -27,7 +27,7 @@ const Table = ({ title, list }) => {
                             {Object.values(obj).map((dado) => (
                                 <td>{dado}</td>
                             ))}
-                            <td>
+                            <td className="actions">
                                 <button className="btn view">View</button>
                                 <button className="btn delete">Delete</button>
                             </td>

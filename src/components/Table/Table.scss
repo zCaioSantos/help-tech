@@ -6,6 +6,10 @@
     padding: 1.5em;
     border-radius: 10px;
 
+    width: 100%;
+    max-width: 1920px;
+    overflow: scroll;
+
     .header {
         display: flex;
         align-items: center;
@@ -27,7 +31,11 @@
     .table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
+
         width: 100%;
+        max-width: 1920px;
+        min-width: 1000px;
+
         border: 0.5px solid #00000020;
 
         tr {
@@ -40,13 +48,27 @@
                 padding: 1em;
             }
 
+            th:first-child {
+                text-transform: uppercase;
+
+                width: 25px;
+                max-width: 30px;
+            }
+
             th {
                 font-weight: 500;
                 color: var(--principal);
+                text-transform: capitalize;
             }
 
             td {
                 color: var(--segundario);
+            }
+
+            .actions {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
             }
 
         }        

@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Sidebar.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Sidebar.scss";
 
 import { FaHome, FaUserAlt, FaLaptop, FaSignOutAlt } from "react-icons/fa";
 
 function Sidebar(props) {
     return (
-        <section className='sidebar'>
+        <section className="sidebar">
             <article className="header">
                 <p>Help Tech</p>
             </article>
@@ -14,37 +14,43 @@ function Sidebar(props) {
             <hr />
 
             <article className="body">
-        
                 <ul>
-                    <li className='title'>
+                    <li className="title">
                         <p>Main</p>
                     </li>
-                    <li className='option'>
-                        <FaHome/>
-                        <span>Home</span>
-                    </li>
-                    <li className='option'>
-                        <FaUserAlt/>
-                        <Link style={{textDecoration: "none"}} to="/users">
+
+                    <Link to="/">
+                        <li className="option">
+                            <FaHome />
+                            <span>Home</span>
+                        </li>
+                    </Link>
+                    <Link to="/users">
+                        <li className="option">
+                            <FaUserAlt />
                             <span>Users</span>
-                        </Link>
-                    </li>
-                    <li className='option'>
-                        <FaLaptop/>
-                        <span>Products</span>
-                    </li>
+                        </li>
+                    </Link>
+                    <Link to="/products">
+                        <li className="option">
+                            <FaLaptop />
+                            <span>Products</span>
+                        </li>
+                    </Link>
                 </ul>
             </article>
 
-            <article className="footer">         
+            <article className="footer">
                 <ul>
-                    <li className='title'>
+                    <li className="title">
                         <p>User</p>
                     </li>
-                    <li className='option'>
-                        <FaSignOutAlt/>
-                        <span>Logout</span>
-                    </li>
+                    <Link to="/users">
+                        <li className="option">
+                            <FaSignOutAlt />
+                            <span>Logout</span>
+                        </li>
+                    </Link>
                 </ul>
             </article>
         </section>

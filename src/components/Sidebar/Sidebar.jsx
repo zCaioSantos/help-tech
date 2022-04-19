@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.scss';
 
 import { FaHome, FaUserAlt, FaLaptop, FaSignOutAlt } from "react-icons/fa";
@@ -24,7 +25,9 @@ function Sidebar(props) {
                     </li>
                     <li className='option'>
                         <FaUserAlt/>
-                        <span>Users</span>
+                        <Link style={{textDecoration: "none"}} to="/users">
+                            <span>Users</span>
+                        </Link>
                     </li>
                     <li className='option'>
                         <FaLaptop/>

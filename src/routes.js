@@ -14,7 +14,7 @@ function RoutesApp() {
                     <Route index element={<Home/>} />
                     {/* <Route path='login' element={<Login/>} />  */}
                     <Route path='/users'>
-                        <Route index element={<Single table={(<Table />)}/>} /> 
+                        <Route index element={<Single table={(<Table title="List Users" list={[{Id: 1, name: "Caio"}]}/>)}/>} /> 
                     </Route>
                 </Route>
             </Routes>

@@ -14,7 +14,7 @@
     }
 
     input {
-        padding: 10px;
+        padding: 15px 10px;
         width: 100%;
 
         border: .5px solid #00000050;
@@ -32,6 +32,7 @@
 
         &:invalid {
             border: .5px solid var(--fail);
+            color: var(--fail);
         }
     }
 }

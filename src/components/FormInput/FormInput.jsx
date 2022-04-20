@@ -10,6 +10,7 @@ const FormInput = ({ inputs }) => {
                     id={input.name}
                     type={input.type}
                     placeholder={input.placeholder}
+                    value={input.value}
                 />
             </div>
         ))

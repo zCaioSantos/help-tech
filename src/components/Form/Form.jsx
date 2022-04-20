@@ -3,28 +3,6 @@ import FormInput from "../FormInput/FormInput";
 import "./Form.scss";
 
 const Form = ({title, inputs}) => {
-
-    inputs = [
-        {
-            name: "nome",
-            label: "Nome",
-            type: "text",
-            placeholder: "Digite seu nome"
-        },
-        {
-            name: "email",
-            label: "E-mail",
-            type: "email",
-            placeholder: "Digite seu email"
-        },
-        {
-            name: "departamento",
-            label: "Departamento",
-            type: "text",
-            placeholder: "Informe o departamento do usuario"
-        }
-    ]
-
     return (
         <form className="form">
             <section className="header">

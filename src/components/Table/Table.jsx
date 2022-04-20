@@ -3,8 +3,8 @@ import "./Table.scss";
 import { Link } from "react-router-dom";
 
 const Table = ({ title, type }) => {
+    
     let list;
-
     switch (type) {
         case 'users':
             list=[{Id: 1, name: "Caio", email: ""}]

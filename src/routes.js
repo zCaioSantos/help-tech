@@ -19,14 +19,14 @@ function RoutesApp() {
 
                     <Route path='/users'>
                         <Route index element={<List table={(<Table title="List Users" type="users" />)}/>} /> 
-                        <Route path=":id" element={<Single />} />
-                        <Route path="new" element={<New title="New User" />} />
+                        <Route path="new" element={<New title="New User" type="users" />} />
+                        <Route path=":id" element={<Single type="users" />} />
                     </Route>
 
                     <Route path='/products'>
                         <Route index element={<List table={(<Table title="List Products" type="products" />)}/>} /> 
-                        <Route path=":id" element={<Single />} />
-                        <Route path="new" element={<New title="New Product"/>} />
+                        <Route path="new" element={<New title="New Product" type="products"/>} />
+                        <Route path=":id" element={<Single type="products"/>} />
                     </Route>
 
                 </Route>

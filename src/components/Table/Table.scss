@@ -48,17 +48,17 @@
                 padding: 1em;
             }
 
-            th:first-child {
-                text-transform: uppercase;
-
-                width: 25px;
-                max-width: 30px;
-            }
-
             th {
                 font-weight: 500;
                 color: var(--principal);
                 text-transform: capitalize;
+
+                &:first-child {
+                    text-transform: uppercase;
+    
+                    width: 25px;
+                    max-width: 30px;
+                }
             }
 
             td {
@@ -72,49 +72,5 @@
             }
 
         }        
-    }
-
-    .btn {
-        border: none;
-        outline: none;
-
-        padding: 0.5em 1em;
-        border-radius: 5px;
-        background: transparent;
-        cursor: pointer;
-
-        font-weight: 500;
-
-        transition: background .7s ease, color .5s ease;
-
-        &.view {
-            color: #1f4d6b;
-            border: .5px dotted var(--default);
-
-            &:hover {
-                background-color: var(--default);
-            }
-        }
-
-        &.delete {
-            margin-left: 1em;
-            color: #79263b;
-            border: .5px dotted var(--fail);
-
-            &:hover {
-                background-color: var(--fail);
-            }
-        }
-
-        &.new {
-            margin-left: 1em;
-            color: #30641b;
-            font-size: 1em;
-            border: .5px dotted var(--sucesso);
-
-            &:hover {
-                background-color: var(--sucesso);
-            }
-        }
     }
 }

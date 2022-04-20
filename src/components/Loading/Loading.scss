@@ -22,6 +22,6 @@
 
 @keyframes is-rotating {
     to {
-        transform: rotate(1turn);
+        transform: rotate(1turn) rotateZ(2turn);
     }
 }

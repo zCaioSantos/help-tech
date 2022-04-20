@@ -1,7 +1,21 @@
 import React from "react";
 import "./Table.scss";
+import { Link } from "react-router-dom";
 
-const Table = ({ title, list }) => {
+const Table = ({ title, type }) => {
+    let list;
+
+    switch (type) {
+        case 'users':
+            list=[{Id: 1, name: "Caio", email: ""}]
+            break;
+        case 'products':
+            list=[{Id: 1, name: "Notebook Lenovo"}]
+            break;
+        default:
+            break;
+    }
+
     const colunas = Object.keys(list[0]);
 
     return (
@@ -10,7 +24,9 @@ const Table = ({ title, list }) => {
                 <h1 className="title">
                     {title}
                 </h1>
-                <button className="btn new">Add new</button>
+                <Link to={`/${type}/new`}>
+                    <p className="btn new">Add new</p>
+                </Link>
             </article>
             <table className="table">
                 <thead>
@@ -23,12 +39,14 @@ const Table = ({ title, list }) => {
                 </thead>
                 <tbody>
                     { list.map((obj) => (
-                        <tr>
+                        <tr key={Object.values(obj)[0]}>
                             {Object.values(obj).map((dado) => (
                                 <td>{dado}</td>
                             ))}
                             <td className="actions">
-                                <button className="btn view">View</button>
+                                <Link to={`/${type}/` + Object.values(obj)[0]} >
+                                    <p className="btn view">View</p>
+                                </Link>
                                 <button className="btn delete">Delete</button>
                             </td>
                         </tr>

@@ -1,14 +1,13 @@
-// import Navbar from '../../components/Navbar/Navbar'
+import Form from '../../components/Form/Form'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import './New.scss'
 
-export default function Single() {
+export default function New({title, type}) {
     return(
-
-        <section className="single">
+        <section className="new">
             <Sidebar />
-            <article className='single__container'>
-                
+            <article className='new__container'>
+                <Form title={title}/>
             </article>
         </section>
 

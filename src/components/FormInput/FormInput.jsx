@@ -1,19 +1,18 @@
-import React from "react";
 import "./FormInput.scss";
 
-const FormInput = ({ inputs }) => {
+const FormInput = ({ type, text, name, placeholder, handOnChange, value }) => {
     return (
-        inputs.map((input) => (
-            <div className="formInput">
-                <label htmlFor={input.name}>{input.label}</label>
-                <input
-                    id={input.name}
-                    type={input.type}
-                    placeholder={input.placeholder}
-                    value={input.value}
-                />
-            </div>
-        ))
+        <div className="formInput">
+            <label htmlFor={name}>{text}</label>
+            <input
+                id={name}
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={handOnChange}
+            />
+        </div>
     );
 };
 

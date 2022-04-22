@@ -1,45 +1,84 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Table.scss";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import ModalLoading from "../Modal_Load/Modal_Load";
 
-const Table = ({title, type, list, colunas}) => {
+const Table = ({type, list, reload}) => {
+
+    const [modal, setModal] = useState(false)
+    // eslint-disable-next-line
+    const [colunas, setColunas] = useState(Object.keys(list).length >= 1 ? Object.keys(list[0]) : null)
+
+    const delet = async (props) => {
+        try {
+            setModal(true)
+            await axios.delete(`http://localhost:5000/${type}/${props}`)
+            setModal(false)
+            reload()
+        } catch (error) {
+            console.log("erro ao delet user")
+        }
+    }
+
+    if (modal) {
+        return (
+            <ModalLoading type="sucess" text={`Delete ${type}`} title="Deletando" />
+        )
+    }
 
     return (
         <section className="card__table">
             <article className="header">
-                <h1 className="title">{title}</h1>
+                <h1 className="title">List {type}</h1>
                 <Link to={`/${type}/new`}>
                     <p className="btn new">Add new</p>
                 </Link>
             </article>
-            <table className="table">
-                <thead>
-                    <tr>
-                        {
-                        colunas.map((colum) => (
-                            <th>{colum}</th>
-                        ))}
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {list.map((obj) => (
-                        <tr key={Object.values(obj)[0]}>
-                            {Object.values(obj).map((dado) => (
-                                <td>{dado}</td>
+            {!colunas ? (
+                <p style={{color:'#ff4f7b', fontWeight: 'bold'}}>Tabela vazia!</p>
+            ) : (
+                <table className="table">
+                    <thead>
+                        <tr>
+                            {colunas.map((colum) => (
+                                <th>{colum}</th>
                             ))}
-                            <td className="actions">
-                                <Link to={`/${type}/` + Object.values(obj)[0]}>
-                                    <p className="btn view">View</p>
-                                </Link>
-                                <button className="btn delete">Delete</button>
-                            </td>
+                            <th>Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {list.map((obj) => (
+                            <tr key={Object.values(obj)[0]}>
+                                {Object.values(obj).map((dado) => (
+                                    <td>{dado}</td>
+                                ))}
+                                <td className="actions">
+                                    <Link
+                                        to={
+                                            `/${type}/` + Object.values(obj)[0]
+                                        }
+                                    >
+                                        <p
+                                            className="btn view"
+                                        >
+                                            View
+                                        </p>
+                                    </Link>
+                                    <button
+                                        className="btn delete"
+                                        onClick={() => {delet(Object.values(obj)[0])}}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
         </section>
-    );
+    ); 
 };
 
 export default Table;

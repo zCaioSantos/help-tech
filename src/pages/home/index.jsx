@@ -1,17 +1,17 @@
 // import Navbar from '../../components/Navbar/Navbar'
-import Loading from '../../components/Loading/Loading'
-import Sidebar from '../../components/Sidebar/Sidebar'
-import './home.scss'
+import FormInput from "../../components/FormInput/FormInput";
+import Layout from "../../components/Layout/Layout";
+import "./home.scss";
 
 export default function Home() {
-    return(
-
-        <section className="home">
-            <Sidebar />
-            <article className='home__container'>
-                <Loading />
-            </article>
-        </section>
-
-    )
+    return (
+        <Layout>
+            <FormInput
+                type="text"
+                text="Nome"
+                name="nome"
+                placeholder="Informe o nome. Ex.: Nome Sobrenome"
+            />
+        </Layout>
+    );
 }

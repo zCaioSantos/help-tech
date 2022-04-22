@@ -1,37 +1,36 @@
-
-import axios from "axios"
-import {React, useEffect, useState } from "react";
+import axios from "axios";
+import { React, useEffect, useState } from "react";
+import Layout from "../../components/Layout/Layout";
 import Loading from "../../components/Loading/Loading";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import Table from "../../components/Table/Table";
 import "./List.scss";
 
 export default function List({ type }) {
+    const [list, setList] = useState([]);
+    const [isLoading, setIsLoading] = useState([]);
 
-    const [list, setList] = useState([])
-    const [coluns, setListColuns] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-
-    const loadList = async () => {
-        setIsLoading(true)
-        const result = await (await axios.get(`http://localhost:5000/${type}/`)).data
-        setList(result)
-        console.log(result)
-        setListColuns(Object.keys(result[0]))
-        setIsLoading(false)
-    }
+    const loadTable = async () => {
+        setIsLoading(true);
+        const result = await (
+            await axios.get(`http://localhost:5000/${type}/`)
+        ).data;
+        setList(result);
+        setIsLoading(false);
+    };
 
     useEffect(() => {
-        loadList();
+        loadTable();
+
         // eslint-disable-next-line
     }, [type]);
 
     return (
-        <section className="list">
-            <Sidebar />
-            <article className="list__container">
-                {isLoading ? <Loading/> : <Table title={`List ${type}`} type={type} list={list} colunas={coluns} />}
-            </article>
-        </section>
+        <Layout>
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <Table list={list} type={type} reload={loadTable} />
+            )}
+        </Layout>
     );
-};
+}

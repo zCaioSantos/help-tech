@@ -1,0 +1,140 @@
+{
+    "listUsers": [
+        {
+            "type": "text",
+            "text": "Nome*",
+            "name": "nome",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Ops.. Nunca vi nome com numeros ou caracteres especias!",
+            "pattern": "^[A-z ]{3,50}$",
+            "required": true
+        },
+        {
+            "type": "email",
+            "text": "E-mail*",
+            "name": "email",
+            "placeholder": "Informe o e-mail. Ex.: pessoa@dominio.com.br",
+            "error": "Ops.. Isso não é um e-mail valido!",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Departamento*",
+            "name": "departamento",
+            "placeholder": "Informe o departamento. Ex.: Financeiro",
+            "error": "Ops.. Nunca vi nome de departamento com numeros ou caracteres especias!",
+            "pattern": "^[A-z]{2,50}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Telefone",
+            "name": "telefone",
+            "placeholder": "Informe o telefone. Ex.: 1191234456",
+            "error": "Informe um telefone valido! Ex.: 1191234456 ou 5511912345678",
+            "pattern": "^[0-9]{11,13}$",
+            "required": false
+        },
+        {
+            "type": "text",
+            "text": "Ramal",
+            "name": "ramal",
+            "placeholder": "Informe o ramal. Ex.: 123",
+            "error": "Informe um ramal valido de no maximo 3 numeros!",
+            "pattern": "^[0-9]{3}$",
+            "required": false
+        }
+    ],
+    "listProduct": [
+        {
+            "type": "text",
+            "text": "Marca*",
+            "name": "marca",
+            "placeholder": "Informe a marca. Ex.: Dell",
+            "error": "Informe uma marca valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Modelo*",
+            "name": "modelo",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Numero de serie*",
+            "name": "nmr_serie",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Processador*",
+            "name": "processador",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Memoria Ram*",
+            "name": "memoria_ram",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "HD",
+            "name": "hd",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": false
+        },
+        {
+            "type": "text",
+            "text": "SSD",
+            "name": "ssd",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": false
+        },
+        {
+            "type": "text",
+            "text": "Sistema Operacional*",
+            "name": "sistema_operacional",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": true
+        },
+        {
+            "type": "text",
+            "text": "Anydesk",
+            "name": "nmr_anydesk",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]{3}$",
+            "required": false
+        },
+        {
+            "type": "text",
+            "text": "Informe o ID do usuario*",
+            "name": "usuario",
+            "placeholder": "Informe o nome. Ex.: Nome Sobrenome",
+            "error": "Informe um nome valido!",
+            "pattern": "^[0-9]$",
+            "required": true
+        }
+    ]
+}

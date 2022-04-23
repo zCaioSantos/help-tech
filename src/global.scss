@@ -70,8 +70,8 @@
             }
         }
     
-        &.new {
-            margin-left: 1em;
+        &.new,
+        &.sucess {
             color: #30641b;
             font-size: 1em;
             border: .5px dotted var(--sucesso);

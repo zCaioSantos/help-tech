@@ -30,9 +30,31 @@
             background-color: #00000010;
         }
 
-        &:invalid {
+        &:invalid[focus="true"] {
             border: .5px solid var(--fail);
             color: var(--fail);
         }
+
+        &:invalid[focus="true"] ~ label {
+            color: var(--fail);
+        }
+
+        &:invalid[focus="true"] ~ span {
+            display: block;
+            animation: fadeIn .5s ease forwards;
+        }
+    }
+
+    span {
+        color: var(--fail);
+        font-size: 12px;
+        display: none;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
     }
 }

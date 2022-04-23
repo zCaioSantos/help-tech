@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Home from './pages/home';
@@ -16,7 +17,7 @@ function RoutesApp() {
                     {/* <Route path='login' element={<Login/>} />  */}
 
                     <Route path='/users'>
-                        <Route index element={<List type="users"/>} /> 
+                        <Route index element={(<List type="users"/>)} /> 
                         <Route path="new" element={<New title="New User" type="users" />} />
                         <Route path=":id" element={<Single type="users" />} />
                     </Route>

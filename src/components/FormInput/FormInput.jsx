@@ -1,17 +1,30 @@
+import { useState } from "react";
 import "./FormInput.scss";
 
-const FormInput = ({ type, text, name, placeholder, handOnChange, value }) => {
+const FormInput = ({ input, handOnChange }) => {
+
+    const [focus, setFocus] = useState(false)
+
+    const toggleFocus = () => {
+        setFocus(true)
+    }
+
     return (
         <div className="formInput">
-            <label htmlFor={name}>{text}</label>
+            <label htmlFor={input.name}>{input.text}</label>
             <input
-                id={name}
-                name={name}
-                type={type}
-                placeholder={placeholder}
-                value={value}
+                id={input.name}
+                name={input.name}
+                type={input.type}
+                placeholder={input.placeholder}
+                value={input.value}
                 onChange={handOnChange}
+                required={input.required}
+                pattern={input.pattern}
+                onBlur={toggleFocus}
+                focus={focus.toString()}
             />
+            <span>{input.error}</span>
         </div>
     );
 };

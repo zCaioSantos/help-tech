@@ -1,40 +1,21 @@
-import Form from '../../components/Form/Form'
-import Sidebar from '../../components/Sidebar/Sidebar'
-import './New.scss'
+import { useState, useEffect } from "react";
+import Form from "../../components/Form/Form";
+import Layout from "../../components/Layout/Layout";
+import "./New.scss";
 
-export default function New({title, type}) {
+export default function New({ type, title }) {
+    const [form, setForm] = useState({});
+    
+    useEffect(() => {
+        setForm({
+            title,
+            type,
+        });
+    }, [type, title]);
 
-    let inputs;
-    switch (type) {
-        case 'users':
-            inputs = [
-                {
-                    name: "nome",
-                    label: "Nome",
-                    type: "text",
-                    placeholder: "Digite seu nome",
-                }
-            ]
-            break;
-        case 'products':
-            inputs=[{
-                name: "nome",
-                label: "Nome",
-                type: "text",
-                placeholder: "Digite seu nome"
-            }]
-            break;
-        default:
-            break;
-    }
-
-    return(
-        <section className="new">
-            <Sidebar />
-            <article className='new__container'>
-                <Form title={title} inputs={inputs}/>
-            </article>
-        </section>
-
-    )
+    return (
+        <Layout>
+            <Form form={form}/>
+        </Layout>
+    );
 }

@@ -9,3 +9,64 @@
         overflow-y: scroll;
     }
 }
+
+.btn {
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    background: transparent;
+    cursor: pointer;
+
+    font-weight: 500;
+    font-size: 1rem;
+
+    transition: background .7s ease, color .5s ease;
+
+    &.cancel {
+        color: #79263b;
+        border: .5px dotted var(--fail);
+
+        &:hover {
+            background-color: var(--fail);
+        }
+    }
+
+    &.new,
+    &.sucess {
+        color: #30641b;
+        font-size: 1em;
+        border: .5px dotted var(--sucesso);
+
+        &:hover {
+            background-color: var(--sucesso);
+        }
+    }
+
+    
+    &.view {
+        color: #1f4d6b;
+        border: .5px dotted var(--default);
+
+        &:hover {
+            background-color: var(--default);
+        }
+    }
+
+    &.delete {
+        margin-left: 1em;
+        color: #79263b;
+        border: .5px dotted var(--fail);
+
+        &:hover {
+            background-color: var(--fail);
+        }
+    }
+}

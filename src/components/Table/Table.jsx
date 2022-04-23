@@ -6,24 +6,31 @@ import ModalLoading from "../Modal_Load/Modal_Load";
 
 const Table = ({type, list, reload}) => {
 
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState({});
+
     // eslint-disable-next-line
     const [colunas, setColunas] = useState(Object.keys(list).length >= 1 ? Object.keys(list[0]) : null)
 
     const delet = async (props) => {
         try {
-            setModal(true)
+            setModal({
+                type: "sucess",
+                title: "Deletando",
+                visible: true
+            })
             await axios.delete(`http://localhost:5000/${type}/${props}`)
-            setModal(false)
+            setModal({
+                visible: false
+            })
             reload()
         } catch (error) {
             console.log("erro ao delet user")
         }
     }
 
-    if (modal) {
+    if (modal.visible) {
         return (
-            <ModalLoading type="sucess" text={`Delete ${type}`} title="Deletando" />
+            <ModalLoading info={modal} />
         )
     }
 

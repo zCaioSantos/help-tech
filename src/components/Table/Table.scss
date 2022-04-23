@@ -10,6 +10,8 @@
     max-width: 1920px;
     overflow: scroll;
 
+    animation: fadeIn_up 1s ease forwards;
+
     .header {
         display: flex;
         align-items: center;

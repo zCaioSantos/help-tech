@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import FormInput from "../FormInput/FormInput";
 import ModalWarn from "../Modal_Warn/Modal_Warn";
 import inputs from '../../Config/Inputs.json'
+
 import "./Form.scss";
 
 const Form = ({ form }) => {
@@ -31,6 +32,7 @@ const Form = ({ form }) => {
                 title: "Cadastro",
                 text: "User cadastrado com sucesso!",
                 visible: true,
+                page: form.type,
                 close: closeModal,
                 ok: closeModal
             })

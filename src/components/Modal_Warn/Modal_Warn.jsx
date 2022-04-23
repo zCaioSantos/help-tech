@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Modal_Warn.scss';
 
 const ModalWarn = ({ info } ) => {
@@ -12,7 +13,9 @@ const ModalWarn = ({ info } ) => {
                     <p>{info.text}</p>
                 </div>
                 <div className="footer">
-                    <button onClick={info.ok} className="btn new">OK</button>
+                    <Link to={`/${info.page}`}>
+                        <button onClick={info.ok} className="btn new">OK</button>
+                    </Link>
                     {/* <button onClick={info.close} className="btn cancel">CANCEL</button> */}
                 </div>
             </div>

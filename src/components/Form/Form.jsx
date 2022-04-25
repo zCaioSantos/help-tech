@@ -28,9 +28,9 @@ const Form = ({ form }) => {
         e.preventDefault();
         try {
             setModal({
-                type: "normal",
-                title: "Cadastro",
-                text: "User cadastrado com sucesso!",
+                type: "sucess",
+                title: "Sucesso",
+                text: `Cadastrado concluido com sucesso!`,
                 visible: true,
                 page: form.type,
                 close: closeModal,
@@ -44,6 +44,7 @@ const Form = ({ form }) => {
                 title: "Error",
                 text: `Falha ao cadastrar!`,
                 visible: true,
+                page: form.type,
                 close: closeModal,
                 ok: closeModal
             })

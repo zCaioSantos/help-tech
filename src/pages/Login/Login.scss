@@ -1,0 +1,62 @@
+.login {
+    min-height: 100vh;
+    max-width: 1920px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+
+    h1 {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 2em;
+        font-weight: 900;
+
+        color: var(--principal);
+    }
+
+    form {
+        width: 30%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+
+
+        .btnLogin {
+            height: 40px;
+            width: 100%;
+        
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            border: none;
+            outline: none;
+        
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            background: transparent;
+            cursor: pointer;
+        
+            font-weight: 500;
+            font-size: 1rem;
+        
+            transition: background .7s ease, color .5s ease;
+        
+            &.entrar {
+                color: var(--principal);
+                border: .5px dotted var(--principal);
+        
+                &:hover {
+                    color: var(--segundario);
+                    background-color: var(--principal);
+                }
+            }
+        }
+    }
+}

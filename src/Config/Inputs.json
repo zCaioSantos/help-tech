@@ -151,5 +151,25 @@
             "value": null,
             "required": false
         }
+    ],
+    "listLogin": [
+        {
+            "type": "email",
+            "text": "Email",
+            "name": "email",
+            "placeholder": "Ex.: pessoa@dominio.com",
+            "error": "Informe um e-mail valido!",
+            "value": null,
+            "required": true
+        },
+        {
+            "type": "Password",
+            "text": "Senha",
+            "name": "password",
+            "placeholder": "Ex.: password123",
+            "error": "Informe a senha!",
+            "value": null,
+            "required": true
+        }
     ]
 }

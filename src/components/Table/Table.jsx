@@ -3,6 +3,7 @@ import "./Table.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ModalLoading from "../Modal_Load/Modal_Load";
+import ModalWarn from "../Modal_Warn/Modal_Warn";
 
 const Table = ({ type, list, reload }) => {
     const [modal, setModal] = useState({});
@@ -11,6 +12,10 @@ const Table = ({ type, list, reload }) => {
     const [colunas, setColunas] = useState(
         Object.keys(list).length >= 1 ? Object.keys(list[0]) : null
     );
+
+    const closeModal = () => {
+        setModal(false)
+    }
 
     const delet = async (props) => {
         try {
@@ -25,12 +30,28 @@ const Table = ({ type, list, reload }) => {
             });
             reload();
         } catch (error) {
-            console.log("erro ao delet user");
+            setModal({
+                type: "error",
+                title: "Erro",
+                text: "Não foi possivel deletar esse usuario, pois ele está atrelado a uma maquina!",
+                page: type,
+                ok: closeModal,
+                visible: true,
+            });
         }
     };
 
     if (modal.visible) {
-        return <ModalLoading info={modal} />;
+        if (modal.type === "sucess") {
+            return (
+                <ModalLoading info={modal} />
+            )
+        }
+        if (modal.type === "error") {
+            return (
+                <ModalWarn info={modal} />
+            )
+        }
     }
 
     return (

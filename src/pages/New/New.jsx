@@ -8,8 +8,8 @@ export default function New({ type, title }) {
     
     useEffect(() => {
         setForm({
-            title,
-            type,
+            title: title,
+            type: type,
         });
     }, [type, title]);
 

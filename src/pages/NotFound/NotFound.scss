@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 0.7em;
+    gap: 2em;
 
     animation: tremer .1s 200ms ease infinite;
     animation-iteration-count: 3;
@@ -17,14 +17,12 @@
     }
 
     span {
-
         color: var(--segundario);
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 0.5em;
     }
 }
 

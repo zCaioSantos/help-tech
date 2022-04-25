@@ -14,7 +14,7 @@ const ModalWarn = ({ info } ) => {
                 </div>
                 <div className="footer">
                     <Link to={`/${info.page}`}>
-                        <button onClick={info.ok} className="btn new">OK</button>
+                        <button onClick={info.ok} type="submit" className="btn new">OK</button>
                     </Link>
                     {/* <button onClick={info.close} className="btn cancel">CANCEL</button> */}
                 </div>

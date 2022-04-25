@@ -1,0 +1,36 @@
+.notfoundcomponent {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7em;
+
+    animation: tremer .1s 200ms ease infinite;
+    animation-iteration-count: 3;
+
+    h1 {
+        font-size: 4em;
+        color: var(--principal);
+    }
+
+    span {
+
+        color: var(--segundario);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+    }
+}
+
+@keyframes tremer {
+    0% {margin-left: 0;}
+    25% {margin-left: 5px;}
+    50% {margin-left: 0;}
+    75% {margin-left: -5px;}
+    100% {margin-left: 0;}
+}

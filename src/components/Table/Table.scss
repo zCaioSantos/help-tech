@@ -44,16 +44,20 @@
 
             td,
             th {
-                border-top: 0.5px solid #00000020;
                 border-bottom: 0.5px solid #00000020;
                 text-align: left;
+                text-overflow: clip ellipsis;
+                white-space: nowrap;
                 padding: 1em;
             }
 
             th {
                 font-weight: 500;
                 color: var(--principal);
+                text-overflow: ellipsis;
                 text-transform: capitalize;
+
+                
 
                 &:first-child {
                     text-transform: uppercase;
@@ -65,12 +69,12 @@
 
             td {
                 color: var(--segundario);
-            }
 
-            .actions {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
+                .actions {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
             }
 
         }        

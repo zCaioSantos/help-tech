@@ -4,34 +4,33 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ModalLoading from "../Modal_Load/Modal_Load";
 
-const Table = ({type, list, reload}) => {
-
+const Table = ({ type, list, reload }) => {
     const [modal, setModal] = useState({});
 
     // eslint-disable-next-line
-    const [colunas, setColunas] = useState(Object.keys(list).length >= 1 ? Object.keys(list[0]) : null)
+    const [colunas, setColunas] = useState(
+        Object.keys(list).length >= 1 ? Object.keys(list[0]) : null
+    );
 
     const delet = async (props) => {
         try {
             setModal({
                 type: "sucess",
                 title: "Deletando",
-                visible: true
-            })
-            await axios.delete(`http://localhost:5000/${type}/${props}`)
+                visible: true,
+            });
+            await axios.delete(`http://localhost:5000/${type}/${props}`);
             setModal({
-                visible: false
-            })
-            reload()
+                visible: false,
+            });
+            reload();
         } catch (error) {
-            console.log("erro ao delet user")
+            console.log("erro ao delet user");
         }
-    }
+    };
 
     if (modal.visible) {
-        return (
-            <ModalLoading info={modal} />
-        )
+        return <ModalLoading info={modal} />;
     }
 
     return (
@@ -43,7 +42,9 @@ const Table = ({type, list, reload}) => {
                 </Link>
             </article>
             {!colunas ? (
-                <p style={{color:'#ff4f7b', fontWeight: 'bold'}}>Tabela vazia!</p>
+                <p style={{ color: "#ff4f7b", fontWeight: "bold" }}>
+                    Tabela vazia!
+                </p>
             ) : (
                 <table className="table">
                     <thead>
@@ -60,24 +61,22 @@ const Table = ({type, list, reload}) => {
                                 {Object.values(obj).map((dado) => (
                                     <td>{dado}</td>
                                 ))}
-                                <td className="actions">
-                                    <Link
-                                        to={
-                                            `/${type}/` + Object.values(obj)[0]
-                                        }
-                                    >
-                                        <p
-                                            className="btn view"
+                                <td>
+                                    <div className="actions">
+                                        <Link
+                                            to={`/${type}/` + Object.values(obj)[0]}
                                         >
-                                            View
-                                        </p>
-                                    </Link>
-                                    <button
-                                        className="btn delete"
-                                        onClick={() => {delet(Object.values(obj)[0])}}
-                                    >
-                                        Delete
-                                    </button>
+                                            <p className="btn view">View</p>
+                                        </Link>
+                                        <button
+                                            className="btn delete"
+                                            onClick={() => {
+                                                delet(Object.values(obj)[0]);
+                                            }}
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
@@ -85,7 +84,7 @@ const Table = ({type, list, reload}) => {
                 </table>
             )}
         </section>
-    ); 
+    );
 };
 
 export default Table;

@@ -61,7 +61,6 @@
         transition: background .7s ease, color .5s ease;
     
         &.cancel {
-            margin-left: 1em;
             color: #79263b;
             border: .5px dotted var(--fail);
     

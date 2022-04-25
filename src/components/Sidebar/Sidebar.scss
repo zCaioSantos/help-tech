@@ -42,6 +42,10 @@
                 background: var(--segundario);
                 cursor: pointer;
             }
+
+            &.red {
+                color: var(--fail);
+            }
         }
 
         .title {

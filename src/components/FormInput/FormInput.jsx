@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./FormInput.scss";
 
-const FormInput = ({ input, handOnChange }) => {
+const FormInput = ({ input, handOnChange, value }) => {
 
     const [focus, setFocus] = useState(false)
 
@@ -17,7 +17,7 @@ const FormInput = ({ input, handOnChange }) => {
                 name={input.name}
                 type={input.type}
                 placeholder={input.placeholder}
-                value={input.value}
+                value={value}
                 onChange={handOnChange}
                 required={input.required}
                 pattern={input.pattern}

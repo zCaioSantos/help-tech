@@ -29,7 +29,6 @@ function RoutesApp() {
                         <Route path="new" element={<New title="New Product" type="products" />} />
                         <Route path=":id" element={<Single type="products" title="Edit Product" />} />
                     </Route>
-
                 </Route>
             </Routes>
         </BrowserRouter>

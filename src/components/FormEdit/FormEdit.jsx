@@ -15,13 +15,15 @@ const FormEdit = ({ form, dados}) => {
     const [type, setType] = useState("")
     const [edit, setEdit] = useState({...dados});
     const [modal, setModal] = useState({});
-
+    
     let list = type === 'users' ? inputs.listUsers : inputs.listProduct;
 
     // eslint-disable-next-line
     const handleChange = (e) => {
         setEdit({ ...edit, [e.target.name]: e.target.value });
     };
+
+    console.log(dados)
 
     const submit = async (e) => {
         e.preventDefault();
@@ -36,7 +38,7 @@ const FormEdit = ({ form, dados}) => {
                 ok: closeModal
             })
             console.log(edit)
-            // await axios.put(`http://localhost:5000/${type}/{edit.id}`, {...edit})
+            await axios.put(`http://localhost:5000/${type}/{edit.id}`, {...edit})
         } catch (error) {
             setModal({
                 type: "error",
@@ -50,16 +52,17 @@ const FormEdit = ({ form, dados}) => {
         }
     };
 
-    const setValueDados = () => {
-        list.forEach(element => {
-            element.value =  "parei aqui !"           
-        });
-        console.log(list)
-    }
+    // const setValueDados = async () => {
+    //     let listdados = Object.values(edit)
+    //     listdados.splice(0, 1)
+    //     setDado(listdados)
+    //     console.log(dado)
+    // }
 
     useEffect (() => {
         setType(form.type)
-        console.log(edit)
+        // setValueDados()
+        // console.log(edit)
     }, [form.type])
 
     const closeModal = () => {
@@ -80,7 +83,7 @@ const FormEdit = ({ form, dados}) => {
                 </section>
                 <section className="body">
                     {list.map((input) => (
-                        <FormInput key={input.name} input={input} handOnChange={handleChange} />
+                        <FormInput value={edit[input.name]} key={input.name} input={input} handOnChange={handleChange} />
                     ))}
                 </section>
                 <section className="footer">

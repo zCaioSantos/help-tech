@@ -17,7 +17,7 @@ export default function Single({ type, title }) {
     const { id } = useParams();
     const [form, setForm] = useState({});
     const [dados, setDados] = useState({})
-    const [isLoading, setIsLoading] = useState([]); 
+    const [isLoading, setIsLoading] = useState(false); 
     const [notfound, setNotfound] = useState(false)
 
     const loadDados = async () => {

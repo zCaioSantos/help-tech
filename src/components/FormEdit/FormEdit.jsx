@@ -23,22 +23,20 @@ const FormEdit = ({ form, dados}) => {
         setEdit({ ...edit, [e.target.name]: e.target.value });
     };
 
-    console.log(dados)
 
     const submit = async (e) => {
         e.preventDefault();
         try {
             setModal({
-                type: "normal",
-                title: "Cadastro",
-                text: "User editado com sucesso!",
+                type: "sucess",
+                title: "Sucesso",
+                text: `Editado com sucesso!`,
                 visible: true,
                 page: form.type,
                 close: closeModal,
                 ok: closeModal
             })
-            console.log(edit)
-            await axios.put(`http://localhost:5000/${type}/{edit.id}`, {...edit})
+            await axios.put(`http://localhost:5000/${type}/${edit.id}`, {...edit})
         } catch (error) {
             setModal({
                 type: "error",
@@ -48,21 +46,35 @@ const FormEdit = ({ form, dados}) => {
                 close: closeModal,
                 ok: closeModal
             })
-            console.log(error)
         }
     };
 
-    // const setValueDados = async () => {
-    //     let listdados = Object.values(edit)
-    //     listdados.splice(0, 1)
-    //     setDado(listdados)
-    //     console.log(dado)
-    // }
+    const delet = async () => {
+        try {
+            setModal({
+                type: "sucess",
+                title: "Sucesso",
+                text: `Deletado com sucesso!`,
+                visible: true,
+                page: type,
+                close: closeModal,
+                ok: closeModal
+            })
+            await axios.delete(`http://localhost:5000/${type}/${edit.id}`);
+        } catch (error) {
+            setModal({
+                type: "error",
+                title: "Erro",
+                text: "Não foi possivel deletar!",
+                page: type,
+                ok: closeModal,
+                visible: true,
+            });
+        }
+    };
 
     useEffect (() => {
         setType(form.type)
-        // setValueDados()
-        // console.log(edit)
     }, [form.type])
 
     const closeModal = () => {
@@ -90,7 +102,7 @@ const FormEdit = ({ form, dados}) => {
                     <button type="submit" className="btn new">
                         Save
                     </button>
-                    <button type="cancel" className="btn cancel">
+                    <button type="cancel" onClick={delet} className="btn cancel">
                             Delete
                     </button>
                     <Link to={`/${form.type}`}>

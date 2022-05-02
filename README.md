@@ -25,6 +25,9 @@ npm start
 
 - Node.js
 - React.js
+- React-icons
+- Axios
+- Sass
 
 # Author
 

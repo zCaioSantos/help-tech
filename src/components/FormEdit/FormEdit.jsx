@@ -99,18 +99,18 @@ const FormEdit = ({ form, dados}) => {
                     ))}
                 </section>
                 <section className="footer">
-                    <button type="submit" className="btn new">
-                        Save
-                    </button>
-                    <button type="cancel" onClick={delet} className="btn cancel">
-                            Delete
-                    </button>
                     <Link to={`/${form.type}`}>
                         <button type="cancel" className="btn view">
                             Cancel
                         </button>
                     </Link>
+                    <button type="cancel" onClick={delet} className="btn cancel">
+                            Delete
+                    </button>
 
+                    <button type="submit" className="btn new">
+                        Save
+                    </button>
                 </section>
             </form>
         </Suspense>

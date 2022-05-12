@@ -154,18 +154,18 @@
     ],
     "listLogin": [
         {
-            "type": "email",
-            "text": "Email",
-            "name": "email",
-            "placeholder": "Ex.: pessoa@dominio.com",
-            "error": "Informe um e-mail valido!",
+            "type": "text",
+            "text": "Usuario",
+            "name": "nome",
+            "placeholder": "Ex.: joaozin123",
+            "error": "Informe um usuario!",
             "value": null,
             "required": true
         },
         {
             "type": "Password",
             "text": "Senha",
-            "name": "password",
+            "name": "senha",
             "placeholder": "Ex.: password123",
             "error": "Informe a senha!",
             "value": null,

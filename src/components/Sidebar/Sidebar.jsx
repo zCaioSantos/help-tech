@@ -45,7 +45,7 @@ function Sidebar(props) {
                     <li className="title">
                         <p>User</p>
                     </li>
-                    <Link to="/users">
+                    <Link to="/login">
                         <li className="option red">
                             <FaSignOutAlt />
                             <span>Logout</span>

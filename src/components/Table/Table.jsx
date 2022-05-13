@@ -84,10 +84,9 @@ const Table = ({ type, list, reload }) => {
                         {list
                         // eslint-disable-next-line
                             .filter((obj) => {
-                                console.log(obj);
                                 if (busca === "") {
                                     return obj;
-                                } else if ( obj.nome.toLowerCase().includes(busca.toLocaleLowerCase()) || obj.email.toLowerCase().includes(busca.toLocaleLowerCase()) || obj.telefone.includes(busca) ) {
+                                } else if ( obj.nome?.toLowerCase().includes(busca.toLocaleLowerCase()) || obj.email?.toLowerCase().includes(busca.toLocaleLowerCase()) || obj.marca?.toLowerCase().includes(busca.toLocaleLowerCase()) || obj.modelo?.toLowerCase().includes(busca.toLocaleLowerCase()) || obj.telefone?.includes(busca)) {
                                     return obj;
                                 }
                             })

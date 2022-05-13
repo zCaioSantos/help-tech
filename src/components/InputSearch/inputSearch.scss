@@ -1,0 +1,31 @@
+.Search {
+    border: .5px solid #00000050;
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+
+    height: 40px;
+    width: 40%;
+
+    padding: 15px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    font-size: 1rem;
+
+    input {
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+
+    &:focus {
+        border: .5px solid #00000095;
+    }
+
+    .icon {
+        color: #767676;
+    }
+}

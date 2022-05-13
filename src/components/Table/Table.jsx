@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ModalLoading from "../Modal_Load/Modal_Load";
 import ModalWarn from "../Modal_Warn/Modal_Warn";
+import InputSearch from "../InputSearch/inputSearch";
 
 const Table = ({ type, list, reload }) => {
     const [modal, setModal] = useState({});
+    const [busca, setBusca] = useState("");
 
     // eslint-disable-next-line
     const [colunas, setColunas] = useState(
@@ -14,8 +16,12 @@ const Table = ({ type, list, reload }) => {
     );
 
     const closeModal = () => {
-        setModal(false)
-    }
+        setModal(false);
+    };
+
+    const handOnChange = (e) => {
+        setBusca(e.target.value);
+    };
 
     const delet = async (props) => {
         try {
@@ -43,14 +49,10 @@ const Table = ({ type, list, reload }) => {
 
     if (modal.visible) {
         if (modal.type === "sucess") {
-            return (
-                <ModalLoading info={modal} />
-            )
+            return <ModalLoading info={modal} />;
         }
         if (modal.type === "error") {
-            return (
-                <ModalWarn info={modal} />
-            )
+            return <ModalWarn info={modal} />;
         }
     }
 
@@ -58,6 +60,7 @@ const Table = ({ type, list, reload }) => {
         <section className="card__table">
             <article className="header">
                 <h1 className="title">List {type}</h1>
+                <InputSearch handOnChange={handOnChange} />
                 <Link to={`/${type}/new`}>
                     <p className="btn new">Add new</p>
                 </Link>
@@ -77,30 +80,50 @@ const Table = ({ type, list, reload }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {list.map((obj) => (
-                            <tr key={Object.values(obj)[0]}>
-                                {Object.values(obj).map((dado) => (
-                                    <td>{dado}</td>
-                                ))}
-                                <td>
-                                    <div className="actions">
-                                        <Link
-                                            to={`/${type}/` + Object.values(obj)[0]}
-                                        >
-                                            <p className="btn view">View</p>
-                                        </Link>
-                                        <button
-                                            className="btn delete"
-                                            onClick={() => {
-                                                delet(Object.values(obj)[0]);
-                                            }}
-                                        >
-                                            Delete
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
+                        
+                        {list
+                        // eslint-disable-next-line
+                            .filter((obj) => {
+                                console.log(obj.nome);
+                                if (busca === "") {
+                                    return obj;
+                                } else if (
+                                    obj.nome
+                                        .toLowerCase()
+                                        .includes(busca.toLocaleLowerCase())
+                                ) {
+                                    return obj;
+                                }
+                            })
+                            .map((obj) => (
+                                <tr key={Object.values(obj)[0]}>
+                                    {Object.values(obj).map((dado) => (
+                                        <td>{dado}</td>
+                                    ))}
+                                    <td>
+                                        <div className="actions">
+                                            <Link
+                                                to={
+                                                    `/${type}/` +
+                                                    Object.values(obj)[0]
+                                                }
+                                            >
+                                                <p className="btn view">View</p>
+                                            </Link>
+                                            <button
+                                                className="btn delete"
+                                                onClick={() => {
+                                                    delet(
+                                                        Object.values(obj)[0]
+                                                    );
+                                                }}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             )}

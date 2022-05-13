@@ -1,10 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Sidebar.scss";
 
 import { FaHome, FaUserAlt, FaLaptop, FaSignOutAlt } from "react-icons/fa";
 
 function Sidebar(props) {
+
+    let navigate = useNavigate();
+
+    const singOut = () => {
+        localStorage.setItem('token', false)
+        return navigate("/login");
+    }
+
     return (
         <section className="sidebar">
             <article className="header">
@@ -45,12 +53,12 @@ function Sidebar(props) {
                     <li className="title">
                         <p>User</p>
                     </li>
-                    <Link to="/login">
-                        <li className="option red">
-                            <FaSignOutAlt />
-                            <span>Logout</span>
-                        </li>
-                    </Link>
+                    
+                    <li className="option red"  onClick={singOut}>
+                        <FaSignOutAlt />
+                        <span>Logout</span>
+                    </li>
+                    
                 </ul>
             </article>
         </section>

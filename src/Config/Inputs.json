@@ -157,7 +157,7 @@
             "type": "text",
             "text": "Usuario",
             "name": "nome",
-            "placeholder": "Ex.: joaozin123",
+            "placeholder": "Ex.: brunoCarequinha123",
             "error": "Informe um usuario!",
             "value": null,
             "required": true
@@ -166,7 +166,7 @@
             "type": "Password",
             "text": "Senha",
             "name": "senha",
-            "placeholder": "Ex.: password123",
+            "placeholder": "Ex.: nota10",
             "error": "Informe a senha!",
             "value": null,
             "required": true

@@ -8,6 +8,8 @@
     justify-content: center;
     gap: 2em;
 
+    animation: fadeIn_up 1s ease;
+
     .warn {
         position: absolute;
         width: 100%;

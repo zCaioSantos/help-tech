@@ -29,6 +29,10 @@ npm start
 - Axios
 - Sass
 
+## Backend
+
+[Repository for the backend API](https://github.com/zCaioSantos/help-tech-api)
+
 # Author
 
 👤 **Caio Santos**
